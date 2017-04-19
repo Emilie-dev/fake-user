@@ -1,8 +1,8 @@
 $(document).ready(function()
 {
 
-	$('button').on('click', function()
-	{
+	var chargerProfil = function()
+	{		
 		$.get('http://192.168.1.177/user').done(function(data)
 		{
 			console.log(data);
@@ -10,5 +10,14 @@ $(document).ready(function()
 			$("#lastname").html(data.lastName);
 			$("#avatar").attr('src', data.avatar);		
 		});		
+				
+	};
+
+	chargerProfil();
+	$('button').on('click', function()
+	{
+		chargerProfil();	
 	});	
+	
+
 });
